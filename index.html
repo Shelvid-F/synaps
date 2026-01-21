@@ -43,6 +43,150 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            padding: 0.75rem 0;
+            border-bottom-color: var(--gray-border);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .navbar-logo {
+            width: 45px;
+            height: 45px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-logo {
+            width: 38px;
+            height: 38px;
+        }
+
+        .navbar-brand:hover .navbar-logo {
+            transform: rotate(5deg);
+        }
+
+        .navbar-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.2;
+        }
+
+        .navbar-title span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--gray-medium);
+            letter-spacing: 0.05em;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .navbar-nav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gray-dark);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0.25rem;
+            left: 1rem;
+            right: 1rem;
+            height: 1px;
+            background: var(--blue-ensae);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-nav a:hover {
+            color: var(--blue-ensae);
+        }
+
+        .navbar-nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .navbar-nav a.active {
+            color: var(--blue-ensae);
+        }
+
+        .navbar-nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Mobile menu */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .navbar-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--blue-ensae);
+            z-index: 1001;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
         /* Typography */
         h1, h2, h3, h4 {
             font-family: 'Cormorant Garamond', Georgia, serif;
@@ -93,6 +237,7 @@
             position: relative;
             background: linear-gradient(165deg, var(--white) 0%, var(--cream) 50%, var(--white) 100%);
             overflow: hidden;
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -111,8 +256,18 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out;
         }
+
+        .hero-content > * {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
 
         @keyframes fadeInUp {
             from {
@@ -123,6 +278,44 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
         }
 
         .hero-label {
@@ -185,33 +378,22 @@
             color: var(--black);
         }
 
-        .hero-decoration {
+        .hero-logo {
             position: absolute;
-            right: 5%;
+            right: 8%;
             top: 50%;
             transform: translateY(-50%);
-            width: 300px;
-            height: 400px;
-            opacity: 0.06;
-            pointer-events: none;
+            width: 280px;
+            height: 280px;
+            opacity: 0;
+            animation: scaleIn 1s ease-out 0.5s forwards, float 6s ease-in-out 1.5s infinite;
         }
 
-        .hero-decoration::before {
-            content: '';
-            position: absolute;
+        .hero-logo img {
             width: 100%;
             height: 100%;
-            border: 2px solid var(--blue-ensae);
-        }
-
-        .hero-decoration::after {
-            content: '';
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
-            border: 1px solid var(--blue-ensae);
+            object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(26, 75, 140, 0.15));
         }
 
         /* Scroll indicator */
@@ -229,6 +411,17 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             animation: pulse 2s ease-in-out infinite;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .scroll-indicator:hover {
+            color: var(--blue-ensae);
+        }
+
+        .scroll-indicator:hover svg {
+            stroke: var(--blue-ensae);
         }
 
         @keyframes pulse {
@@ -240,6 +433,13 @@
             width: 20px;
             height: 20px;
             stroke: var(--gray-light);
+            transition: stroke 0.2s ease;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
         }
 
         /* Section Headers */
@@ -778,13 +978,61 @@
                 padding: 0 1.5rem;
             }
 
-            .hero {
-                min-height: auto;
-                padding: 6rem 0;
+            .navbar-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem 2rem 2rem;
+                border-bottom: 1px solid var(--gray-border);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
 
-            .hero-decoration {
+            .navbar-nav.active {
+                display: flex;
+            }
+
+            .navbar-nav a {
+                padding: 0.75rem 0;
+            }
+
+            .navbar-nav a::after {
+                left: 0;
+                right: auto;
+                width: 30px;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            .navbar-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .navbar-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 8rem 0 6rem;
+            }
+
+            .hero-logo {
                 display: none;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1.5rem;
             }
 
             .lesson-card {
@@ -809,19 +1057,115 @@
         /* Subtle animations on scroll */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger children animations */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+        /* Hover effects enhancement */
+        .stat-card, .innovation-card, .activity-item, .thanks-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(26, 75, 140, 0.1);
+        }
+
+        .innovation-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(26, 75, 140, 0.08);
+        }
+
+        /* Counter animation for stats */
+        .stat-number {
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">
+                <img src="Logo Club Presse ENSAE Dakar.png" alt="Logo Club Presse" class="navbar-logo">
+                <div class="navbar-title">
+                    Club Presse
+                    <span>ENSAE Dakar</span>
+                </div>
+            </a>
+            <ul class="navbar-nav" id="navbarNav">
+                <li><a href="#chiffres">Chiffres</a></li>
+                <li><a href="#innovations">Innovations</a></li>
+                <li><a href="#activites">Activités</a></li>
+                <li><a href="#origine">Origine</a></li>
+                <li><a href="#lecons">Leçons</a></li>
+                <li><a href="#remerciements">Remerciements</a></li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
                 <span class="hero-label">Bilan de Mandat</span>
@@ -839,17 +1183,16 @@
                 </div>
             </div>
         </div>
-        <div class="hero-decoration"></div>
-        <div class="scroll-indicator">
+        <a href="#chiffres" class="scroll-indicator">
             <span>Défiler</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-        </div>
+        </a>
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
+    <section class="stats" id="chiffres">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-number">01</span>
@@ -891,7 +1234,7 @@
     </section>
 
     <!-- Innovations Section -->
-    <section class="innovations">
+    <section class="innovations" id="innovations">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-number">02</span>
@@ -919,7 +1262,7 @@
     </section>
 
     <!-- Activities Section -->
-    <section class="activities">
+    <section class="activities" id="activites">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-number">03</span>
@@ -977,7 +1320,7 @@
     </section>
 
     <!-- Origin Section -->
-    <section class="origin">
+    <section class="origin" id="origine">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-number">04</span>
@@ -1004,7 +1347,7 @@
     </section>
 
     <!-- Lessons Section -->
-    <section class="lessons">
+    <section class="lessons" id="lecons">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-number">05</span>
@@ -1057,7 +1400,7 @@
     </section>
 
     <!-- Thanks Section -->
-    <section class="thanks">
+    <section class="thanks" id="remerciements">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-number">07</span>
@@ -1134,7 +1477,68 @@
     </footer>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // ===== Navigation =====
+        const navbar = document.getElementById('navbar');
+        const navbarToggle = document.getElementById('navbarToggle');
+        const navbarNav = document.getElementById('navbarNav');
+        const navLinks = document.querySelectorAll('.navbar-nav a');
+        const sections = document.querySelectorAll('section[id]');
+        const progressBar = document.getElementById('progressBar');
+
+        // Toggle mobile menu
+        navbarToggle.addEventListener('click', () => {
+            navbarToggle.classList.toggle('active');
+            navbarNav.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarToggle.classList.remove('active');
+                navbarNav.classList.remove('active');
+            });
+        });
+
+        // ===== Scroll Effects =====
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            // Navbar background on scroll
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Progress bar
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+
+            // Active nav link based on scroll position
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            lastScroll = currentScroll;
+        });
+
+        // ===== Intersection Observer for Animations =====
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1149,8 +1553,61 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in, .stagger-children').forEach(el => {
             observer.observe(el);
+        });
+
+        // ===== Counter Animation for Stats =====
+        const counters = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const text = target.textContent;
+                    const hasPlus = text.includes('+');
+                    const num = parseInt(text.replace(/\D/g, ''));
+                    
+                    if (num > 0) {
+                        animateCounter(target, num, hasPlus);
+                        counterObserver.unobserve(target);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        function animateCounter(element, target, hasPlus) {
+            let current = 0;
+            const increment = target / 40;
+            const duration = 1500;
+            const stepTime = duration / 40;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                const displayNum = Math.floor(current).toString().padStart(2, '0');
+                element.textContent = (hasPlus ? '+' : '') + displayNum;
+            }, stepTime);
+        }
+
+        // ===== Smooth scroll for anchor links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
