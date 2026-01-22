@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilan du Club Presse 2024/2025</title>
+    <meta name="description" content="SYNAPS — Ingénierie numérique & Systèmes. Dakar, Sénégal.">
+    <title>SYNAPS — Ingénierie numérique & Systèmes</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --blue-ensae: #1a4b8c;
-            --blue-ensae-light: #2563a8;
-            --blue-ensae-dark: #0f2d54;
-            --black: #1a1a1a;
-            --gray-dark: #3d3d3d;
-            --gray-medium: #6b6b6b;
-            --gray-light: #a8a8a8;
-            --gray-border: #e5e5e5;
-            --white: #ffffff;
-            --off-white: #fafafa;
-            --cream: #f8f7f5;
+            --bg: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --text: #1A1A1A;
+            --text-soft: #5C5C5C;
+            --text-muted: #8E8E8E;
+            --accent: #16A34A;
+            --accent-light: #DCFCE7;
+            --border: #E5E5E5;
+            --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         * {
@@ -33,246 +35,1018 @@
         }
 
         body {
-            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-weight: 400;
-            color: var(--black);
-            background-color: var(--white);
-            line-height: 1.7;
-            font-size: 17px;
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navigation */
-        .navbar {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HEADER ========== */
+        header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid transparent;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: 0.08em;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 0.875rem;
+            color: var(--text-soft);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--text);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            background: #333;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-soft);
+            max-width: 560px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .hero-cta:hover {
+            background: #15803d;
+            transform: translateY(-1px);
+        }
+
+        .hero-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========== SHOWCASE ========== */
+        .showcase {
+            padding: 40px 0 100px;
+        }
+
+        .showcase-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .showcase-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
             transition: all 0.3s ease;
-            padding: 1rem 0;
+            cursor: pointer;
         }
 
-        .navbar.scrolled {
-            padding: 0.75rem 0;
-            border-bottom-color: var(--gray-border);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        .showcase-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: var(--accent);
         }
 
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .showcase-preview {
+            aspect-ratio: 4/3;
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-info {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .showcase-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.625rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .showcase-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Dashboard Preview */
+        .dashboard-preview {
+            padding: 16px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .dash-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .navbar-brand {
+        .dash-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        .dash-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dash-dots span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .dash-dots span:first-child { background: #ef4444; }
+        .dash-dots span:nth-child(2) { background: #f59e0b; }
+        .dash-dots span:last-child { background: #22c55e; }
+
+        .dash-chart {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            padding: 8px 0;
+        }
+
+        .dash-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--accent), #86efac);
+            border-radius: 3px 3px 0 0;
+            transition: height 0.5s ease;
+        }
+
+        .dash-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .dash-stat {
+            background: white;
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .dash-stat-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .dash-stat-label {
+            font-size: 0.5rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* LaTeX Preview */
+        .latex-preview {
+            padding: 20px;
+            height: 100%;
+            background: white;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .latex-header {
+            text-align: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .latex-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .latex-author {
+            font-size: 0.65rem;
+            color: var(--text-soft);
+            font-style: italic;
+        }
+
+        .latex-section {
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .latex-text {
+            font-size: 0.6rem;
+            line-height: 1.5;
+            color: var(--text-soft);
+            text-align: justify;
+        }
+
+        .latex-equation {
+            text-align: center;
+            padding: 10px;
+            margin: 8px 0;
+            background: #fafafa;
+            border-radius: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text);
+        }
+
+        /* Data Table Preview */
+        .data-preview {
+            padding: 16px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .data-toolbar {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .data-btn {
+            padding: 4px 8px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.5rem;
+            color: var(--text-soft);
+        }
+
+        .data-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .data-table {
+            flex: 1;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .data-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 0.8fr;
+            font-size: 0.55rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-row:last-child {
+            border-bottom: none;
+        }
+
+        .data-row.header {
+            background: #f9fafb;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .data-cell {
+            padding: 6px 8px;
+            color: var(--text-soft);
+        }
+
+        .data-positive { color: var(--accent); }
+        .data-negative { color: #ef4444; }
+
+        /* Chart Preview */
+        .chart-preview {
+            padding: 16px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .chart-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 12px;
+        }
+
+        .legend-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            text-decoration: none;
+            gap: 4px;
+            font-size: 0.5rem;
+            color: var(--text-soft);
         }
 
-        .navbar-logo {
-            width: 45px;
-            height: 45px;
-            transition: transform 0.3s ease;
+        .legend-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
         }
 
-        .navbar.scrolled .navbar-logo {
-            width: 38px;
-            height: 38px;
-        }
-
-        .navbar-brand:hover .navbar-logo {
-            transform: rotate(5deg);
-        }
-
-        .navbar-title {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--black);
-            line-height: 1.2;
-        }
-
-        .navbar-title span {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: var(--gray-medium);
-            letter-spacing: 0.05em;
-        }
-
-        .navbar-nav {
-            display: flex;
-            gap: 0.5rem;
-            list-style: none;
-        }
-
-        .navbar-nav a {
-            display: block;
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--gray-dark);
-            text-decoration: none;
-            letter-spacing: 0.02em;
+        .chart-area {
+            flex: 1;
             position: relative;
-            transition: color 0.2s ease;
+            border-left: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
-        .navbar-nav a::after {
-            content: '';
+        .chart-line {
             position: absolute;
-            bottom: 0.25rem;
-            left: 1rem;
-            right: 1rem;
-            height: 1px;
-            background: var(--blue-ensae);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-nav a:hover {
-            color: var(--blue-ensae);
-        }
-
-        .navbar-nav a:hover::after {
-            transform: scaleX(1);
-        }
-
-        .navbar-nav a.active {
-            color: var(--blue-ensae);
-        }
-
-        .navbar-nav a.active::after {
-            transform: scaleX(1);
-        }
-
-        /* Mobile menu */
-        .navbar-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .navbar-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--black);
-            transition: all 0.3s ease;
-        }
-
-        /* Progress bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
+            bottom: 0;
             left: 0;
-            height: 2px;
-            background: var(--blue-ensae);
-            z-index: 1001;
-            width: 0%;
-            transition: width 0.1s linear;
+            width: 100%;
+            height: 100%;
         }
 
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+        .chart-line svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Notion Preview */
+        .notion-preview {
+            padding: 16px;
+            height: 100%;
+            background: white;
+        }
+
+        .notion-breadcrumb {
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .notion-title {
+            font-size: 0.9rem;
             font-weight: 600;
-            line-height: 1.2;
-            color: var(--black);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            letter-spacing: -0.02em;
+        .notion-title::before {
+            content: '📋';
+            font-size: 1rem;
         }
 
-        h2 {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
+        .notion-props {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
         }
 
-        h3 {
-            font-size: 1.35rem;
-            margin-bottom: 1rem;
+        .notion-prop {
+            font-size: 0.55rem;
+        }
+
+        .notion-prop-label {
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .notion-prop-value {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .notion-status {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.5rem;
             font-weight: 500;
         }
 
-        p {
-            margin-bottom: 1rem;
-            color: var(--gray-dark);
+        .status-progress { background: #dbeafe; color: #1d4ed8; }
+        .status-done { background: #dcfce7; color: #15803d; }
+
+        .notion-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        /* Layout */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .notion-task {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.6rem;
+            color: var(--text-soft);
         }
 
-        section {
-            padding: 6rem 0;
+        .task-check {
+            width: 12px;
+            height: 12px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
+        .task-check.done {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-size: 0.5rem;
+        }
+
+        /* Website Preview */
+        .website-preview {
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .web-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .web-logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .web-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .web-links span {
+            font-size: 0.5rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .web-hero {
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            position: relative;
-            background: linear-gradient(165deg, var(--white) 0%, var(--cream) 50%, var(--white) 100%);
-            overflow: hidden;
-            padding-top: 80px;
         }
 
-        .hero::before {
+        .web-hero h3 {
+            font-size: 0.85rem;
+            color: white;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .web-hero p {
+            font-size: 0.5rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 12px;
+        }
+
+        .web-btn {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #6366f1;
+            color: white;
+            font-size: 0.5rem;
+            border-radius: 4px;
+            width: fit-content;
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            padding: 28px 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-light);
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .service-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .service-desc {
+            font-size: 0.875rem;
+            color: var(--text-soft);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .service-tag-item {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.625rem;
+            color: var(--text-muted);
+            background: var(--bg);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* ========== PROCESS ========== */
+        .process {
+            padding: 100px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(26, 75, 140, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(26, 75, 140, 0.02) 0%, transparent 40%);
-            pointer-events: none;
+            top: 24px;
+            right: -16px;
+            width: 32px;
+            height: 1px;
+            background: var(--border);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        .process-step:last-child::after {
+            display: none;
         }
 
-        .hero-content > * {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 auto 16px;
         }
 
-        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
-        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
-        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
-        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+        .step-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
 
-        @keyframes fadeInUp {
+        .step-time {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-content p {
+            font-size: 1rem;
+            color: var(--text-soft);
+            margin-bottom: 32px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-soft);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .contact-item-text {
+            font-size: 0.9375rem;
+            color: var(--text);
+        }
+
+        .contact-form {
+            background: var(--bg);
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group:last-of-type {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9375rem;
+            background: white;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .form-submit:hover {
+            background: #15803d;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+        }
+
+        .footer-copy {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .footer-tagline {
+            font-size: 0.8125rem;
+            color: var(--text-soft);
+            font-style: italic;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .showcase-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 48px;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+                gap: 16px;
+            }
+            
+            nav {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .footer-left {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -280,1335 +1054,466 @@
             }
         }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .animate {
+            animation: fadeUp 0.6s ease forwards;
         }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-        }
-
-        .hero-label {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--blue-ensae);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--blue-ensae);
-        }
-
-        .hero h1 {
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            display: block;
-            color: var(--blue-ensae);
-        }
-
-        .hero-subtitle {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--gray-medium);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-meta {
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-border);
-            max-width: 400px;
-            display: flex;
-            gap: 3rem;
-        }
-
-        .hero-meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .hero-meta-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--gray-medium);
-        }
-
-        .hero-meta-value {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--black);
-        }
-
-        .hero-logo {
-            position: absolute;
-            right: 8%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 280px;
-            height: 280px;
-            opacity: 0;
-            animation: scaleIn 1s ease-out 0.5s forwards, float 6s ease-in-out 1.5s infinite;
-        }
-
-        .hero-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 40px rgba(26, 75, 140, 0.15));
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray-light);
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            animation: pulse 2s ease-in-out infinite;
-            cursor: pointer;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .scroll-indicator:hover {
-            color: var(--blue-ensae);
-        }
-
-        .scroll-indicator:hover svg {
-            stroke: var(--blue-ensae);
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        .scroll-indicator svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--gray-light);
-            transition: stroke 0.2s ease;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(5px); }
-        }
-
-        /* Section Headers */
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-        .section-number {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 0.9rem;
-            color: var(--blue-ensae);
-            letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .section-line {
-            width: 60px;
-            height: 1px;
-            background: var(--blue-ensae);
-            margin-top: 1.5rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--cream);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            border-color: var(--blue-ensae);
-            transform: translateY(-3px);
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--blue-ensae);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--gray-dark);
-            font-weight: 500;
-        }
-
-        .stat-sublabel {
-            font-size: 0.8rem;
-            color: var(--gray-medium);
-            margin-top: 0.5rem;
-        }
-
-        /* Poles Grid */
-        .poles-container {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-        }
-
-        .poles-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--gray-medium);
-            margin-bottom: 1.5rem;
-        }
-
-        .poles-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .pole-tag {
-            padding: 0.5rem 1.25rem;
-            background: var(--off-white);
-            border: 1px solid var(--gray-border);
-            font-size: 0.9rem;
-            color: var(--gray-dark);
-            transition: all 0.2s ease;
-        }
-
-        .pole-tag:hover {
-            background: var(--blue-ensae);
-            color: var(--white);
-            border-color: var(--blue-ensae);
-        }
-
-        /* Innovations Section */
-        .innovations {
-            background: var(--white);
-        }
-
-        .innovations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .innovation-card {
-            padding: 2.5rem;
-            border: 1px solid var(--gray-border);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .innovation-card:hover {
-            border-color: var(--blue-ensae);
-        }
-
-        .innovation-card::before {
-            content: attr(data-number);
-            position: absolute;
-            top: -1px;
-            left: 2rem;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--blue-ensae);
-            background: var(--white);
-            padding: 0 0.5rem;
-            transform: translateY(-50%);
-        }
-
-        .innovation-card h3 {
-            color: var(--black);
-            margin-bottom: 0.75rem;
-        }
-
-        .innovation-card p {
-            font-size: 0.95rem;
-            color: var(--gray-medium);
-            margin-bottom: 0;
-        }
-
-        .innovation-quote {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 0.95rem;
-            font-style: italic;
-            color: var(--gray-dark);
-            margin-top: 1rem;
-            padding-left: 1rem;
-            border-left: 2px solid var(--gray-border);
-            margin-bottom: 0.5rem;
-        }
-
-        .innovation-cite {
-            font-size: 0.8rem;
-            color: var(--gray-light);
-            font-style: normal;
-        }
-
-        /* Activities Section */
-        .activities {
-            background: var(--cream);
-        }
-
-        .activities-list {
-            display: grid;
-            gap: 1rem;
-            max-width: 700px;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-            transition: all 0.2s ease;
-        }
-
-        .activity-item:hover {
-            border-left: 3px solid var(--blue-ensae);
-            padding-left: calc(1.5rem - 2px);
-        }
-
-        .activity-icon {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--gray-border);
-            color: var(--blue-ensae);
-        }
-
-        .activity-icon svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .activity-content h4 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .activity-content p {
-            font-size: 0.9rem;
-            color: var(--gray-medium);
-            margin-bottom: 0;
-        }
-
-        /* Origin Section */
-        .origin {
-            background: var(--blue-ensae-dark);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .origin::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .origin .section-number {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .origin h2 {
-            color: var(--white);
-        }
-
-        .origin .section-line {
-            background: rgba(255,255,255,0.3);
-        }
-
-        .origin-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-        }
-
-        .origin-quote {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.75rem;
-            font-style: italic;
-            color: rgba(255,255,255,0.9);
-            line-height: 1.5;
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-            border-left: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .origin-details {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .origin-detail {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .origin-detail-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 0.5rem;
-        }
-
-        .origin-detail-value {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.9);
-        }
-
-        /* Lessons Section */
-        .lessons {
-            background: var(--white);
-        }
-
-        .lessons-intro {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.35rem;
-            font-style: italic;
-            color: var(--gray-dark);
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
-
-        .lessons-grid {
-            display: grid;
-            gap: 2rem;
-            max-width: 800px;
-        }
-
-        .lesson-card {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 2rem;
-            padding: 2rem;
-            background: var(--off-white);
-            border-left: 3px solid var(--blue-ensae);
-        }
-
-        .lesson-number {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--blue-ensae);
-            line-height: 1;
-        }
-
-        .lesson-content h4 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--black);
-            margin-bottom: 0.75rem;
-        }
-
-        .lesson-content p {
-            font-size: 0.95rem;
-            color: var(--gray-medium);
-            margin-bottom: 0;
-        }
-
-        /* Message Section */
-        .message {
-            background: var(--cream);
-            text-align: center;
-        }
-
-        .message-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .message-quote {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            font-weight: 500;
-            color: var(--black);
-            line-height: 1.4;
-            margin-bottom: 2rem;
-        }
-
-        .message-subtext {
-            font-size: 1.1rem;
-            color: var(--gray-medium);
-            font-style: italic;
-        }
-
-        /* Thanks Section */
-        .thanks {
-            background: var(--white);
-        }
-
-        .thanks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .thanks-card {
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid var(--gray-border);
-            transition: all 0.2s ease;
-        }
-
-        .thanks-card:hover {
-            border-color: var(--blue-ensae);
-            background: var(--off-white);
-        }
-
-        .thanks-card svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--blue-ensae);
-            margin-bottom: 1rem;
-        }
-
-        .thanks-card h4 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--black);
-        }
-
-        /* Closing Section */
-        .closing {
-            background: var(--black);
-            color: var(--white);
-            text-align: center;
-            padding: 8rem 2rem;
-        }
-
-        .closing-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .closing h2 {
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        .closing-tagline {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 3rem;
-        }
-
-        .closing-year {
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--black);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 2rem;
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-left {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .footer-brand {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .footer-info {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
-        }
-
-        .footer-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-links a {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        .powered-by {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.3);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .powered-by span {
-            color: rgba(255,255,255,0.5);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-
-        /* Image placeholders */
-        .image-placeholder {
-            background: linear-gradient(135deg, var(--off-white) 0%, var(--cream) 100%);
-            border: 1px dashed var(--gray-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-light);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            section {
-                padding: 4rem 0;
-            }
-
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .navbar-nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 1rem 2rem 2rem;
-                border-bottom: 1px solid var(--gray-border);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            }
-
-            .navbar-nav.active {
-                display: flex;
-            }
-
-            .navbar-nav a {
-                padding: 0.75rem 0;
-            }
-
-            .navbar-nav a::after {
-                left: 0;
-                right: auto;
-                width: 30px;
-            }
-
-            .navbar-toggle {
-                display: flex;
-            }
-
-            .navbar-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .navbar-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .navbar-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 8rem 0 6rem;
-            }
-
-            .hero-logo {
-                display: none;
-            }
-
-            .hero-meta {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .lesson-card {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .lesson-number {
-                font-size: 2rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-right {
-                flex-direction: column;
-            }
-        }
-
-        /* Subtle animations on scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-in-left {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fade-in-right {
-            opacity: 0;
-            transform: translateX(30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Stagger children animations */
-        .stagger-children > * {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
-
-        /* Hover effects enhancement */
-        .stat-card, .innovation-card, .activity-item, .thanks-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(26, 75, 140, 0.1);
-        }
-
-        .innovation-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(26, 75, 140, 0.08);
-        }
-
-        /* Counter animation for stats */
-        .stat-number {
-            display: inline-block;
-        }
+        .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
     </style>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <img src="logo-synaps.png" alt="SYNAPS" class="logo-icon">
+                    <span class="logo-text">SYNAPS</span>
+                </a>
+                <nav>
+                    <a href="#travaux">Travaux</a>
+                    <a href="#services">Services</a>
+                    <a href="#processus">Processus</a>
+                    <a href="#contact" class="nav-cta">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar-container">
-            <a href="#" class="navbar-brand">
-                <img src="Logo Club Presse ENSAE Dakar.png" alt="Logo Club Presse" class="navbar-logo">
-                <div class="navbar-title">
-                    Club Presse
-                    <span>ENSAE Dakar</span>
-                </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge animate">Dakar, Sénégal</span>
+            <h1 class="animate animate-delay-1">Data, numérique<br>& systèmes</h1>
+            <p class="animate animate-delay-2">Nous transformons vos données, documents et environnements de travail en systèmes clairs, exploitables et professionnels.</p>
+            <a href="#contact" class="hero-cta animate animate-delay-3">
+                Démarrer un projet
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
             </a>
-            <ul class="navbar-nav" id="navbarNav">
-                <li><a href="#chiffres">Chiffres</a></li>
-                <li><a href="#innovations">Innovations</a></li>
-                <li><a href="#activites">Activités</a></li>
-                <li><a href="#origine">Origine</a></li>
-                <li><a href="#lecons">Leçons</a></li>
-                <li><a href="#remerciements">Remerciements</a></li>
-            </ul>
-            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
-    </nav>
+    </section>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <!-- Showcase -->
+    <section class="showcase" id="travaux">
         <div class="container">
-            <div class="hero-content">
-                <span class="hero-label">Bilan de Mandat</span>
-                <h1>Club Presse<br><span>ENSAE Dakar</span></h1>
-                <p class="hero-subtitle">Structure, Innovation et Transmission</p>
-                <div class="hero-meta">
-                    <div class="hero-meta-item">
-                        <span class="hero-meta-label">Année académique</span>
-                        <span class="hero-meta-value">2024–2025</span>
+            <p class="showcase-label">Exemples de réalisations</p>
+            <div class="showcase-grid">
+                <!-- Dashboard -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="dashboard-preview">
+                            <div class="dash-header">
+                                <span class="dash-title">dashboard_ventes.xlsx</span>
+                                <div class="dash-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="dash-chart">
+                                <div class="dash-bar" style="height: 45%"></div>
+                                <div class="dash-bar" style="height: 68%"></div>
+                                <div class="dash-bar" style="height: 52%"></div>
+                                <div class="dash-bar" style="height: 85%"></div>
+                                <div class="dash-bar" style="height: 72%"></div>
+                                <div class="dash-bar" style="height: 95%"></div>
+                                <div class="dash-bar" style="height: 78%"></div>
+                                <div class="dash-bar" style="height: 62%"></div>
+                            </div>
+                            <div class="dash-stats">
+                                <div class="dash-stat">
+                                    <div class="dash-stat-value">2.4M</div>
+                                    <div class="dash-stat-label">Chiffre d'affaires</div>
+                                </div>
+                                <div class="dash-stat">
+                                    <div class="dash-stat-value">+12%</div>
+                                    <div class="dash-stat-label">Croissance</div>
+                                </div>
+                                <div class="dash-stat">
+                                    <div class="dash-stat-value">847</div>
+                                    <div class="dash-stat-label">Clients</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="hero-meta-item">
-                        <span class="hero-meta-label">Président</span>
-                        <span class="hero-meta-value">David NGUEAJIO</span>
+                    <div class="showcase-info">
+                        <p class="showcase-tag">Dashboard</p>
+                        <h3 class="showcase-title">Tableau de bord commercial</h3>
+                    </div>
+                </div>
+
+                <!-- LaTeX -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="latex-preview">
+                            <div class="latex-header">
+                                <div class="latex-title">Analyse des déterminants de la croissance</div>
+                                <div class="latex-author">Université Cheikh Anta Diop — Mai 2025</div>
+                            </div>
+                            <div class="latex-section">1. Méthodologie</div>
+                            <p class="latex-text">Le modèle économétrique utilisé repose sur une régression en panel à effets fixes. Les variables explicatives incluent...</p>
+                            <div class="latex-equation">Y<sub>it</sub> = α + βX<sub>it</sub> + μ<sub>i</sub> + ε<sub>it</sub></div>
+                            <p class="latex-text">où Y représente le taux de croissance du PIB, X le vecteur des variables...</p>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <p class="showcase-tag">LaTeX</p>
+                        <h3 class="showcase-title">Mémoire académique</h3>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="data-preview">
+                            <div class="data-toolbar">
+                                <span class="data-btn active">Données</span>
+                                <span class="data-btn">Filtres</span>
+                                <span class="data-btn">Export</span>
+                            </div>
+                            <div class="data-table">
+                                <div class="data-row header">
+                                    <span class="data-cell">Région</span>
+                                    <span class="data-cell">Volume</span>
+                                    <span class="data-cell">Revenus</span>
+                                    <span class="data-cell">Δ</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-cell">Dakar</span>
+                                    <span class="data-cell">2,847</span>
+                                    <span class="data-cell">45.2M</span>
+                                    <span class="data-cell data-positive">+12%</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-cell">Thiès</span>
+                                    <span class="data-cell">1,234</span>
+                                    <span class="data-cell">18.7M</span>
+                                    <span class="data-cell data-positive">+8%</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-cell">Saint-Louis</span>
+                                    <span class="data-cell">892</span>
+                                    <span class="data-cell">12.1M</span>
+                                    <span class="data-cell data-negative">-3%</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-cell">Ziguinchor</span>
+                                    <span class="data-cell">654</span>
+                                    <span class="data-cell">8.9M</span>
+                                    <span class="data-cell data-positive">+5%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <p class="showcase-tag">Data</p>
+                        <h3 class="showcase-title">Base de données nettoyée</h3>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="chart-preview">
+                            <div class="chart-header">
+                                <span class="chart-title">Évolution mensuelle</span>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-dot" style="background: #16A34A"></span>
+                                        2025
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-dot" style="background: #94a3b8"></span>
+                                        2024
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-area">
+                                <div class="chart-line">
+                                    <svg viewBox="0 0 200 100" preserveAspectRatio="none">
+                                        <path d="M0,80 Q25,70 50,60 T100,40 T150,30 T200,15" stroke="#94a3b8" stroke-width="2" fill="none" opacity="0.5"/>
+                                        <path d="M0,70 Q25,55 50,45 T100,30 T150,20 T200,5" stroke="#16A34A" stroke-width="2" fill="none"/>
+                                        <path d="M0,70 Q25,55 50,45 T100,30 T150,20 T200,5 L200,100 L0,100 Z" fill="url(#gradient)" opacity="0.1"/>
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stop-color="#16A34A"/>
+                                                <stop offset="100%" stop-color="#16A34A" stop-opacity="0"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <p class="showcase-tag">Visualisation</p>
+                        <h3 class="showcase-title">Graphique d'analyse</h3>
+                    </div>
+                </div>
+
+                <!-- Notion -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="notion-preview">
+                            <div class="notion-breadcrumb">Workspace / Projets / Q1 2025</div>
+                            <h3 class="notion-title">Roadmap Produit</h3>
+                            <div class="notion-props">
+                                <div class="notion-prop">
+                                    <div class="notion-prop-label">Status</div>
+                                    <div class="notion-prop-value">
+                                        <span class="notion-status status-progress">En cours</span>
+                                    </div>
+                                </div>
+                                <div class="notion-prop">
+                                    <div class="notion-prop-label">Échéance</div>
+                                    <div class="notion-prop-value">15 Mar 2025</div>
+                                </div>
+                            </div>
+                            <div class="notion-tasks">
+                                <div class="notion-task">
+                                    <span class="task-check done">✓</span>
+                                    Audit des processus existants
+                                </div>
+                                <div class="notion-task">
+                                    <span class="task-check done">✓</span>
+                                    Documentation technique
+                                </div>
+                                <div class="notion-task">
+                                    <span class="task-check"></span>
+                                    Formation équipe
+                                </div>
+                                <div class="notion-task">
+                                    <span class="task-check"></span>
+                                    Déploiement final
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <p class="showcase-tag">Système</p>
+                        <h3 class="showcase-title">Workspace Notion</h3>
+                    </div>
+                </div>
+
+                <!-- Website -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="website-preview">
+                            <div class="web-nav">
+                                <span class="web-logo">STARTUP</span>
+                                <div class="web-links">
+                                    <span>Produits</span>
+                                    <span>À propos</span>
+                                    <span>Contact</span>
+                                </div>
+                            </div>
+                            <div class="web-hero">
+                                <h3>L'innovation au service<br>de votre croissance</h3>
+                                <p>Solutions digitales sur mesure pour les entreprises africaines.</p>
+                                <span class="web-btn">Découvrir →</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <p class="showcase-tag">Web</p>
+                        <h3 class="showcase-title">Site vitrine premium</h3>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="#chiffres" class="scroll-indicator">
-            <span>Défiler</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-        </a>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats" id="chiffres">
+    <!-- Services -->
+    <section class="services" id="services">
         <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-number">01</span>
-                <h2>Le Club Presse en chiffres</h2>
-                <div class="section-line"></div>
+            <div class="section-header">
+                <p class="section-tag">Ce que nous faisons</p>
+                <h2 class="section-title">Services</h2>
             </div>
-
-            <div class="stats-grid fade-in">
-                <div class="stat-card">
-                    <div class="stat-number">199</div>
-                    <div class="stat-label">Membres dans la communauté</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">+30</div>
-                    <div class="stat-label">Membres actifs</div>
-                    <div class="stat-sublabel">répartis en pôles</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">03</div>
-                    <div class="stat-label">Innovations majeures</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">04</div>
-                    <div class="stat-label">Activités historiques</div>
-                    <div class="stat-sublabel">maintenues</div>
-                </div>
-            </div>
-
-            <div class="poles-container fade-in">
-                <div class="poles-title">Structure organisationnelle</div>
-                <div class="poles-grid">
-                    <span class="pole-tag">Rédaction</span>
-                    <span class="pole-tag">Édition</span>
-                    <span class="pole-tag">Graphisme</span>
-                    <span class="pole-tag">Secrétariat général</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Innovations Section -->
-    <section class="innovations" id="innovations">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-number">02</span>
-                <h2>Les trois innovations</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="innovations-grid fade-in">
-                <div class="innovation-card" data-number="I">
-                    <h3>Torture & Orthographe</h3>
-                    <p>Concours de dictée pour la valorisation académique et la visibilité culturelle.</p>
-                    <blockquote class="innovation-quote">« Quoiqu'il en dît, quelque douloureux qu'eût pu lui être un pareil réveil… »</blockquote>
-                    <cite class="innovation-cite">— Dictée de Mérimée</cite>
-                </div>
-                <div class="innovation-card" data-number="II">
-                    <h3>Blog du Club Presse</h3>
-                    <p>Mémoire numérique et vitrine externe pour pérenniser les productions éditoriales.</p>
-                </div>
-                <div class="innovation-card" data-number="III">
-                    <h3>Chaînes WhatsApp</h3>
-                    <p>Diffusion rapide et proximité renforcée avec la communauté estudiantine.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Activities Section -->
-    <section class="activities" id="activites">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-number">03</span>
-                <h2>Continuité des activités</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="activities-list fade-in">
-                <div class="activity-item">
-                    <div class="activity-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
+            <div class="services-grid">
+                <!-- Data -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
                         </svg>
                     </div>
-                    <div class="activity-content">
-                        <h4>Couverture des soutenances</h4>
-                        <p>Documentation et valorisation des travaux académiques des étudiants</p>
+                    <h3 class="service-title">Data</h3>
+                    <p class="service-desc">Nettoyage, structuration et visualisation de vos données pour des décisions éclairées.</p>
+                    <div class="service-tags">
+                        <span class="service-tag-item">Dashboards</span>
+                        <span class="service-tag-item">Excel/CSV</span>
+                        <span class="service-tag-item">Visualisation</span>
                     </div>
                 </div>
-                <div class="activity-item">
-                    <div class="activity-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+
+                <!-- LaTeX -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
                         </svg>
                     </div>
-                    <div class="activity-content">
-                        <h4>« Le saviez-vous que »</h4>
-                        <p>Rubriques de culture générale et faits marquants</p>
+                    <h3 class="service-title">Documents</h3>
+                    <p class="service-desc">Mise en forme professionnelle de mémoires, thèses et rapports aux standards académiques.</p>
+                    <div class="service-tags">
+                        <span class="service-tag-item">LaTeX</span>
+                        <span class="service-tag-item">Mémoires</span>
+                        <span class="service-tag-item">Rapports</span>
                     </div>
                 </div>
-                <div class="activity-item">
-                    <div class="activity-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+
+                <!-- Systèmes -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <div class="activity-content">
-                        <h4>Communication — Journée d'intégration</h4>
-                        <p>En partenariat avec la Chargée à la communication de l'Amicale</p>
+                    <h3 class="service-title">Systèmes</h3>
+                    <p class="service-desc">Organisation de vos outils et flux de travail pour une productivité optimale.</p>
+                    <div class="service-tags">
+                        <span class="service-tag-item">Notion</span>
+                        <span class="service-tag-item">Obsidian</span>
+                        <span class="service-tag-item">Workflows</span>
                     </div>
                 </div>
-                <div class="activity-item">
-                    <div class="activity-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+
+                <!-- Web -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 2a10 10 0 0 1 0 20"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
                         </svg>
                     </div>
-                    <div class="activity-content">
-                        <h4>Magazine du Club Presse</h4>
-                        <p>Publication phare et vitrine éditoriale du club</p>
+                    <h3 class="service-title">Web</h3>
+                    <p class="service-desc">Sites vitrines modernes et outils numériques pour votre présence en ligne.</p>
+                    <div class="service-tags">
+                        <span class="service-tag-item">Sites</span>
+                        <span class="service-tag-item">Landing pages</span>
+                        <span class="service-tag-item">Design</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Origin Section -->
-    <section class="origin" id="origine">
+    <!-- Process -->
+    <section class="process" id="processus">
         <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-number">04</span>
-                <h2>Le point de départ</h2>
-                <div class="section-line"></div>
+            <div class="section-header">
+                <p class="section-tag">Notre méthode</p>
+                <h2 class="section-title">Processus</h2>
             </div>
-
-            <div class="origin-content fade-in">
-                <blockquote class="origin-quote">
-                    L'interview de M. Lavancier — premier acte éditorial, première exigence de sérieux, première identité posée.
-                </blockquote>
-                <div class="origin-details">
-                    <div class="origin-detail">
-                        <div class="origin-detail-label">Signification</div>
-                        <div class="origin-detail-value">Ce fut le moment fondateur qui a défini le ton et les standards du mandat.</div>
-                    </div>
-                    <div class="origin-detail">
-                        <div class="origin-detail-label">Impact</div>
-                        <div class="origin-detail-value">Établissement d'une ligne éditoriale rigoureuse et professionnelle.</div>
-                    </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Diagnostic</h3>
+                    <p class="step-time">J+0</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Prototype</h3>
+                    <p class="step-time">J+2</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Validation</h3>
+                    <p class="step-time">J+5</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Livraison</h3>
+                    <p class="step-time">J+7</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lessons Section -->
-    <section class="lessons" id="lecons">
+    <!-- Contact -->
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-number">05</span>
-                <h2>Limites & apprentissages</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <p class="lessons-intro fade-in">Ce mandat m'a enseigné trois leçons essentielles sur le leadership et la gestion d'équipe.</p>
-
-            <div class="lessons-grid fade-in">
-                <div class="lesson-card">
-                    <div class="lesson-number">1</div>
-                    <div class="lesson-content">
-                        <h4>En leadership, le « qui » est aussi important que le « comment ».</h4>
-                        <p>Savoir s'entourer est une compétence stratégique fondamentale.</p>
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <h2>Démarrons votre projet</h2>
+                    <p>Décrivez votre situation, nous définirons ensemble la solution adaptée.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <span class="contact-item-text">+221 77 095 05 98</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <span class="contact-item-text">Dakar, Sénégal</span>
+                        </div>
                     </div>
                 </div>
-                <div class="lesson-card">
-                    <div class="lesson-number">2</div>
-                    <div class="lesson-content">
-                        <h4>Le perfectionnisme peut ralentir toute une équipe, et le laisser-aller peut tout détruire.</h4>
-                        <p>Le rôle du leader est de trouver l'équilibre juste.</p>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Message envoyé ! Nous vous répondons sous 24h.');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="votre@email.com">
+                        </div>
                     </div>
-                </div>
-                <div class="lesson-card">
-                    <div class="lesson-number">3</div>
-                    <div class="lesson-content">
-                        <h4>À l'ENSAE, vous n'avez pas encore la contrainte de rentabilité.</h4>
-                        <p>C'est le moment idéal pour expérimenter à fond.</p>
+                    <div class="form-group">
+                        <label for="service">Service</label>
+                        <select id="service">
+                            <option value="">Sélectionner un service</option>
+                            <option value="data">Data — Analyse & Visualisation</option>
+                            <option value="documents">Documents — LaTeX & Rapports</option>
+                            <option value="systemes">Systèmes — Notion & Workflows</option>
+                            <option value="web">Web — Sites & Design</option>
+                            <option value="autre">Autre</option>
+                        </select>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Décrivez votre projet..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Envoyer</button>
+                </form>
             </div>
-        </div>
-    </section>
-
-    <!-- Message Section -->
-    <section class="message">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-number">06</span>
-                <h2>Message au prochain bureau</h2>
-                <div class="section-line" style="margin: 1.5rem auto 0;"></div>
-            </div>
-
-            <div class="message-content fade-in">
-                <p class="message-quote">Construisez. Testez. Osez.<br>Vous êtes dans un laboratoire, pas dans une entreprise.</p>
-                <p class="message-subtext">L'espace étudiant est le terrain d'expérimentation par excellence.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Thanks Section -->
-    <section class="thanks" id="remerciements">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-number">07</span>
-                <h2>Remerciements</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="thanks-grid fade-in">
-                <div class="thanks-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                    </svg>
-                    <h4>Membres du Club Presse</h4>
-                </div>
-                <div class="thanks-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
-                    </svg>
-                    <h4>Enseignants</h4>
-                </div>
-                <div class="thanks-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                    </svg>
-                    <h4>Administration</h4>
-                </div>
-                <div class="thanks-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                    </svg>
-                    <h4>Amicale des Étudiants</h4>
-                </div>
-                <div class="thanks-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                    </svg>
-                    <h4>Tous les soutiens</h4>
-                </div>
-            </div>
-
-            <p class="fade-in" style="text-align: center; margin-top: 3rem; font-style: italic; color: var(--gray-medium);">
-                Ce mandat a été une expérience humaine, organisationnelle et personnelle.
-            </p>
-        </div>
-    </section>
-
-    <!-- Closing Section -->
-    <section class="closing">
-        <div class="closing-content fade-in">
-            <h2>Club Presse 2024–2025</h2>
-            <p class="closing-tagline">Un mandat, une étape, une transmission.</p>
-            <span class="closing-year">ENSAE Dakar</span>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-left">
-                <span class="footer-brand">Club Presse ENSAE Dakar</span>
-                <span class="footer-info">Année académique 2024–2025</span>
-            </div>
-            <div class="footer-right">
-                <div class="footer-links">
-                    <a href="mailto:statplume.ensae@gmail.com">Contact</a>
-                    <a href="https://clubpresseensaedakar.wordpress.com/" target="_blank">Blog</a>
-                    <a href="https://whatsapp.com/channel/0029Vb4OpGW6LwHcy3xiYL0a" target="_blank">WhatsApp</a>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <span class="footer-logo">SYNAPS</span>
+                    <span class="footer-copy">© 2025</span>
                 </div>
-                <div class="powered-by">
-                    Powered by <span>SYNAPS</span>
-                </div>
+                <span class="footer-tagline">La précision comme standard.</span>
             </div>
         </div>
     </footer>
-
-    <script>
-        // ===== Navigation =====
-        const navbar = document.getElementById('navbar');
-        const navbarToggle = document.getElementById('navbarToggle');
-        const navbarNav = document.getElementById('navbarNav');
-        const navLinks = document.querySelectorAll('.navbar-nav a');
-        const sections = document.querySelectorAll('section[id]');
-        const progressBar = document.getElementById('progressBar');
-
-        // Toggle mobile menu
-        navbarToggle.addEventListener('click', () => {
-            navbarToggle.classList.toggle('active');
-            navbarNav.classList.toggle('active');
-        });
-
-        // Close mobile menu on link click
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navbarToggle.classList.remove('active');
-                navbarNav.classList.remove('active');
-            });
-        });
-
-        // ===== Scroll Effects =====
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            // Navbar background on scroll
-            if (currentScroll > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Progress bar
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + '%';
-
-            // Active nav link based on scroll position
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-
-            lastScroll = currentScroll;
-        });
-
-        // ===== Intersection Observer for Animations =====
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in, .stagger-children').forEach(el => {
-            observer.observe(el);
-        });
-
-        // ===== Counter Animation for Stats =====
-        const counters = document.querySelectorAll('.stat-number');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = entry.target;
-                    const text = target.textContent;
-                    const hasPlus = text.includes('+');
-                    const num = parseInt(text.replace(/\D/g, ''));
-                    
-                    if (num > 0) {
-                        animateCounter(target, num, hasPlus);
-                        counterObserver.unobserve(target);
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => counterObserver.observe(counter));
-
-        function animateCounter(element, target, hasPlus) {
-            let current = 0;
-            const increment = target / 40;
-            const duration = 1500;
-            const stepTime = duration / 40;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                const displayNum = Math.floor(current).toString().padStart(2, '0');
-                element.textContent = (hasPlus ? '+' : '') + displayNum;
-            }, stepTime);
-        }
-
-        // ===== Smooth scroll for anchor links =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
